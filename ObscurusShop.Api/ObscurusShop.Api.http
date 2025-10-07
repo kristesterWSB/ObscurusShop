@@ -1,0 +1,6 @@
+@ObscurusShop.Api_HostAddress = http://localhost:5246
+
+GET {{ObscurusShop.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

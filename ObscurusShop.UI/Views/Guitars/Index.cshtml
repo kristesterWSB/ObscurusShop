@@ -1,0 +1,45 @@
+﻿
+@model List<ObscurusShop.UI.Models.Guitar>
+
+<h1>🎸 Gitary</h1>
+
+<form asp-action="Create" method="post">
+    <h3>Dodaj nową gitarę</h3>
+    <input type="text" name="Brand" placeholder="Marka" required />
+    <input type="text" name="Model" placeholder="Model" required />
+    <input type="number" name="Price" placeholder="cena" required step="0.01" />
+    <button type="submit">Dodaj</button>
+</form>
+
+<hr />
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Marka</th>
+        <th>Model</th>
+        <th>Cena</th>
+        <th>Akcja</th>
+    </tr>
+
+@foreach (var guitar in Model)
+    {
+        <tr>
+            <td>@guitar.Id</td>
+            <td>@guitar.Brand</td>
+            <td>@guitar.Model</td>
+            <td>@guitar.Price zł</td>
+            <td> 
+                <form asp-action="UpdatePrice" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="@guitar.Id"/>
+                    <input type="number" name="newPrice" placeholder="Nowa cena" step="0.01" required/>
+                    <button type="submit">💰 Zmień cenę</button>
+                </form>
+                <form asp-action="Delete" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="@guitar.Id" />
+                    <button type="submit">🗑 Usuń</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

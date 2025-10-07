@@ -1,0 +1,19 @@
+﻿@model List<ObscurusShop.UI.Models.Guitar>
+
+<h1>🎸 Sklep Obscurus </h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>Id</th><th>Model</th><th>Cena (PLN)</th></tr>
+</thead>
+    <tbody>
+        @foreach (var g in Model)
+        {
+                    <tr>
+                        <td>@g.Id</td>
+                        <td>@g.Model</td>
+                        <td>@g.Price</td>
+                    </tr>
+        }
+    </tbody>
+</table>
